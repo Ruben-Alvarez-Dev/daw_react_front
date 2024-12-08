@@ -1,38 +1,38 @@
 import PropTypes from 'prop-types';
 import Card from '../Card';
 
-const UserForm = ({ isActive, onActivate }) => {
+const UserForm = ({ users, isActive, onActivate, type = 'statistics' }) => {
+  const getContent = () => {
+    switch (type) {
+      case 'statistics':
+        return (
+          <div>
+            <p>Active users: {users?.length || 0}</p>
+            <p>Admins: {users?.filter(u => u.role === 'admin').length || 0}</p>
+            <p>Supervisors: {users?.filter(u => u.role === 'supervisor').length || 0}</p>
+            <p>Customers: {users?.filter(u => u.role === 'customer').length || 0}</p>
+          </div>
+        );
+      case 'activity':
+        return (
+          <div>
+            <p>Recent logins: {users?.filter(u => u.last_login > Date.now() - 86400000).length || 0}</p>
+            <p>Total visits: {users?.reduce((acc, u) => acc + (u.visits || 0), 0)}</p>
+            <p>Active sessions: {users?.filter(u => u.is_online).length || 0}</p>
+            <p>New users today: {users?.filter(u => new Date(u.created_at).toDateString() === new Date().toDateString()).length || 0}</p>
+          </div>
+        );
+      default:
+        return <div>Unknown type</div>;
+    }
+  };
+
   return (
     <Card
-      header={<h2>User Form</h2>}
-      body={
-        <div className="user-form">
-          <form>
-            <div className="form-group">
-              <label htmlFor="username">Username</label>
-              <input type="text" id="username" name="username" />
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input type="email" id="email" name="email" />
-            </div>
-            <div className="form-group">
-              <label htmlFor="role">Role</label>
-              <select id="role" name="role">
-                <option value="admin">Admin</option>
-                <option value="supervisor">Supervisor</option>
-                <option value="customer">Cliente</option>
-              </select>
-            </div>
-          </form>
-        </div>
-      }
-      footer={
-        <div className="form-actions">
-          <button className="custom-button secondary">Cancel</button>
-          <button className="custom-button primary">Save User</button>
-        </div>
-      }
+      id={type}
+      header={<h2>{type === 'statistics' ? 'User Statistics' : 'User Activity'}</h2>}
+      body={getContent()}
+      footer={<button className="custom-button success">View Details</button>}
       isActive={isActive}
       onActivate={onActivate}
     />
@@ -40,8 +40,10 @@ const UserForm = ({ isActive, onActivate }) => {
 };
 
 UserForm.propTypes = {
+  users: PropTypes.array,
   isActive: PropTypes.bool.isRequired,
-  onActivate: PropTypes.func.isRequired
+  onActivate: PropTypes.func.isRequired,
+  type: PropTypes.oneOf(['statistics', 'activity'])
 };
 
 export default UserForm;

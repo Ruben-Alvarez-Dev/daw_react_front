@@ -16,6 +16,7 @@ const Card = ({ header, body, footer, id }) => {
     <div 
       className={`card ${isActive ? 'active' : ''} ${id ? 'clickable' : ''}`}
       onClick={handleClick}
+      data-active={isActive}
     >
       <div className="card-header">{header}</div>
       <div className="card-body">{body}</div>
