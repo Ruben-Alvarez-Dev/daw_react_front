@@ -1,19 +1,21 @@
 import PropTypes from 'prop-types';
 import '../styles/Label.css';
 
-const Label = ({ text, variant = 'default' }) => {
+const Label = ({ text, type = 'default', subtext }) => {
   if (!text) return null;
   
   return (
-    <div className={`label label-${variant}`}>
-      <span>{text}</span>
+    <div className={`label ${type}`}>
+      <span className="label-text">{text}</span>
+      {subtext && <span className="label-subtext">{subtext}</span>}
     </div>
   );
 };
 
 Label.propTypes = {
   text: PropTypes.string.isRequired,
-  variant: PropTypes.oneOf(['default', 'primary', 'success', 'warning', 'danger'])
+  type: PropTypes.string,
+  subtext: PropTypes.string
 };
 
 export default Label;

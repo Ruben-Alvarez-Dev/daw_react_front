@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState, useCallback } from 'react';
 import Card from '../Card';
+import Label from '../Label';
 
 const roleColors = {
   admin: 'var(--admin-color)',
@@ -56,7 +57,7 @@ const UserList = ({ users, selectedUserId, onUserSelect, isActive, onActivate })
                     <div className="user-name">{user.name}</div>
                     <div className="user-email">{user.email}</div>
                     <div className="user-phone">{user.phone}</div>
-                    <div className={`user-role ${user.role}`}>{user.role}</div>
+                    <Label text={user.role} type={user.role.toLowerCase()} />
                   </div>
                   <div className="user-details-row">
                     <div className="user-id">ID: #{user.id_user}</div>

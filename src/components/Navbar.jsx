@@ -27,24 +27,23 @@ const Navbar = () => {
         <h1>La Louche</h1>
       </div>
       <div className="navbar-content">
+        {selectedUser && (
+          <Label 
+            text={selectedUser.name + " - " + selectedUser.email}
+            variant="info"
+          />
+        )}
         {activeCard && (
           <Label 
             text={activeCard.title} 
-            variant="primary"
-          />
-        )}
-        {selectedUser && (
-          <Label 
-            text={selectedUser.name}
-            subtext={selectedUser.email}
             variant="info"
           />
         )}
         <div className="navbar-buttons">
           {user && (
             <Label 
-              text={user.role} 
-              variant="success"
+              text={user.role}
+              type={user.role.toLowerCase()}
             />
           )}
           <Button 
