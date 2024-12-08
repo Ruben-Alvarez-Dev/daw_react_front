@@ -1,0 +1,57 @@
+.user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.user-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.user-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.user-main-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.user-details {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: var(--muted-text);
+}
+
+.user-name {
+  font-weight: 500;
+  color: var(--light-text);
+  font-size: 1.1rem;
+}
+
+.user-email, .user-location, .user-phone {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.user-filters {
+  display: flex;
+  gap: 0.5rem;
+}

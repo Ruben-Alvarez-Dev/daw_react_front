@@ -41,19 +41,19 @@ const Navbar = () => {
         <h1>La Louche</h1>
       </div>
       <div className="navbar-content">
-        {user && (
-          <Label 
-            text={user.role} 
-            type={user.role.toLowerCase()} 
-          />
-        )}
         {activeCard && (
           <Label 
             text={activeCard.title} 
-            type="primary"
+            variant="primary"
           />
         )}
         <div className="navbar-buttons">
+          {user && (
+            <Label 
+              text={user.role} 
+              variant={getRoleVariant(user.role)} 
+            />
+          )}
           <Button 
             text="Login" 
             variant="success" 

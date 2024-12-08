@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import '../styles/Label.css';
 
 const Label = ({ text, variant = 'default' }) => {
+  if (!text) return null;
+  
   return (
     <div className={`label label-${variant}`}>
       <span>{text}</span>

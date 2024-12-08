@@ -11,8 +11,7 @@ const Modal = ({ isOpen, onClose, title, children }) => {
     const fetchUsers = async () => {
       try {
         const data = await getUsers();
-        // Solo tomamos los primeros 3 usuarios que corresponden a los roles principales
-        setUsers(data.slice(0, 3));
+        setUsers(data); // Ahora mostramos todos los usuarios
       } catch (error) {
         console.error('Error fetching users:', error);
       }
@@ -49,9 +48,18 @@ const Modal = ({ isOpen, onClose, title, children }) => {
         </div>
         <div className="modal-body">
           {users.map((user) => (
-            <div key={user.id_user} className="user-option" onClick={() => children.props.onClick(user)}>
-              {getIconByRole(user.role)}
-              <span>{user.name}</span>
+            <div 
+              key={user.id_user} 
+              className="user-option" 
+              onClick={() => children.props.onClick(user)}
+            >
+              <div className="user-icon">
+                {getIconByRole(user.role)}
+              </div>
+              <div className="user-info">
+                <span className="user-name">{user.name}</span>
+                <span className="user-role">{user.role}</span>
+              </div>
             </div>
           ))}
         </div>

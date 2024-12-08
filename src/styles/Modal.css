@@ -49,7 +49,23 @@
 .modal-body {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+  background: #1A1F27;
+  border-radius: 3px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: #4A5568;
+  border-radius: 3px;
 }
 
 .user-option {
@@ -63,9 +79,37 @@
   color: #fff;
   transition: all 0.2s;
   border: 1px solid transparent;
+  margin-bottom: 0.5rem;
 }
 
-.user-option:hover {
-  background-color: #2F3947;
-  border-color: rgba(255, 255, 255, 0.1);
+.user-option:last-child {
+  margin-bottom: 0;
+}
+
+.user-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #2A3441;
+  border-radius: 8px;
+  color: #64B5F6;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.user-name {
+  font-weight: 500;
+  color: #fff;
+}
+
+.user-role {
+  font-size: 0.875rem;
+  color: #A0AEC0;
+  text-transform: capitalize;
 }

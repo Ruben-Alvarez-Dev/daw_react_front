@@ -17,12 +17,12 @@ function App() {
           <div className="display-container">
             <Routes>
               <Route path="/dashboard" element={<h2>Dashboard</h2>} />
-              <Route path="/usuarios" element={<Users />} />
-              <Route path="/restaurantes" element={<h2>Restaurantes</h2>} />
-              <Route path="/mesas" element={<h2>Mesas</h2>} />
-              <Route path="/reservas" element={<h2>Reservas</h2>} />
+              <Route path="/users" element={<Users />} />
+              <Route path="/restaurants" element={<h2>Restaurants</h2>} />
+              <Route path="/tables" element={<h2>Tables</h2>} />
+              <Route path="/bookings" element={<h2>Bookings</h2>} />
               <Route path="/settings" element={<h2>Settings</h2>} />
-              <Route path="/" element={<h2>Bienvenido a La Louche</h2>} />
+              <Route path="/" element={<h2>Welcome to La Louche</h2>} />
             </Routes>
           </div>
         </main>
