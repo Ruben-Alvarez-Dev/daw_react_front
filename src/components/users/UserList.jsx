@@ -2,6 +2,12 @@ import PropTypes from 'prop-types';
 import { useState, useCallback } from 'react';
 import Card from '../Card';
 
+const roleColors = {
+  admin: 'var(--admin-color)',
+  supervisor: 'var(--supervisor-color)',
+  customer: 'var(--customer-color)'
+};
+
 const UserList = ({ users, selectedUserId, onUserSelect, isActive, onActivate }) => {
   const [searchTerm, setSearchTerm] = useState('');
 

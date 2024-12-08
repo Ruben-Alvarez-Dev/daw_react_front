@@ -78,6 +78,7 @@
 
 .user-phone {
   white-space: nowrap;
+  margin-right: 0.5rem;
 }
 
 .user-info-row > div,
@@ -95,18 +96,18 @@
 }
 
 .user-role.admin {
-  background: rgba(255, 69, 0, 0.2);
-  color: #ff4500;
+  background-color: #ff5722;
+  color: #fff;
 }
 
 .user-role.supervisor {
-  background: rgba(255, 165, 0, 0.2);
-  color: #ffa500;
+  background-color: #4caf50;
+  color: #fff;
 }
 
 .user-role.customer {
-  background: rgba(100, 200, 100, 0.2);
-  color: #64c864;
+  background-color: #2196f3;
+  color: #fff;
 }
 
 .user-visits {
@@ -198,6 +199,12 @@
   padding: 0.5rem 0;
 }
 
+:root {
+  --admin-color: #ff5722;
+  --supervisor-color: #4caf50;
+  --customer-color: #2196f3;
+}
+
 @media (max-width: 768px) {
   .user-info-row,
   .user-details-row {
@@ -212,6 +219,10 @@
   .user-email {
     min-width: 0;
     flex: 1 1 100%;
+  }
+
+  .user-phone {
+    margin-right: 0;
   }
 }
 
