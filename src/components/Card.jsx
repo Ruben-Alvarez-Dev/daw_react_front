@@ -1,28 +1,39 @@
-import React from 'react';
-import { useCard } from '../context/CardContext';
-import '../styles/Card.css';
+import '../styles/Card.css'
 
-const Card = ({ header, body, footer, id }) => {
-  const { activeCard, updateActiveCard } = useCard();
-  const isActive = activeCard.id === id;
-
-  const handleClick = () => {
-    if (id) {
-      updateActiveCard(id, header.props.children);
-    }
-  };
-
+const Card = ({ 
+  headerLeft, 
+  headerRight, 
+  bodyTop, 
+  bodyCenter, 
+  bodyBottom, 
+  footerLeft, 
+  footerRight,
+  isActive,
+  onClick 
+}) => {
+  console.log('Card renderizada, isActive:', isActive)
   return (
     <div 
-      className={`card ${isActive ? 'active' : ''} ${id ? 'clickable' : ''}`}
-      onClick={handleClick}
-      data-active={isActive}
+      className={`card ${isActive ? 'active' : ''}`}
+      onClick={onClick}
     >
-      <div className="card-header">{header}</div>
-      <div className="card-body">{body}</div>
-      {footer && <div className="card-footer">{footer}</div>}
-    </div>
-  );
-};
+      <div className="card-header">
+        <div className='card-header-left'>{headerLeft}</div>
+        <div className='card-header-right'>{headerRight}</div>
+      </div>
 
-export default Card;
+      <div className="card-body">
+        <div className='card-body-top'>{bodyTop}</div>
+        <div className='card-body-center'>{bodyCenter}</div>
+        <div className='card-body-bottom'>{bodyBottom}</div>
+      </div>
+
+      <div className="card-footer">
+        <div className='card-footer-left'>{footerLeft}</div>
+        <div className='card-footer-right'>{footerRight}</div>
+      </div>
+    </div>
+  )
+}
+
+export default Card

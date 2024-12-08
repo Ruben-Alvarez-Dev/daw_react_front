@@ -1,67 +1,98 @@
 .card {
-  height: 100%;
-  max-width: 60%;
-  background-color: var(--bg-navbar);
-  border-radius: 12px;
   display: flex;
   flex-direction: column;
-  transition: all 0.3s ease;
-  border: 1px solid var(--bg-navbar);
-  box-shadow: 0 0 10px rgba(var(--primary-rgb), 0);
-  padding: 0;
-  flex: 1;
-  min-width: 0;
+  height: 90%;
+  max-height: 90%;
+  min-height: 0; /* Permitir que se encoja si es necesario */
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
-.card.active {
-  border-color: var(--primary);
-  box-shadow: 0 0 10px rgba(var(--primary-rgb), 0.3);
-  flex: 0 0 50%;
-}
-
+/* Header Styles */
 .card-header {
+  background: #4A90E2;
+  color: white;
   padding: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.card-body {
-  padding: 1rem;
-  flex: 1;
-  overflow-y: auto;
-  max-height: 400px;
-}
-
-.card-body::-webkit-scrollbar {
-  width: 8px;
-}
-
-.card-body::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-}
-
-.card-body::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 4px;
-  transition: background 0.3s ease;
-}
-
-.card-body::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.7);
-}
-
-.card-footer {
-  height: 80px;
-  padding: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
+  min-height: 60px;
+  flex-shrink: 0; /* Evitar que el header se encoja */
 }
 
-/* Estilos para cuando hay múltiples cards en un contenedor */
-.cards-container {
+.card-header-left {
+  font-weight: bold;
+  margin-left: 1rem;
+}
+
+.card-header-right {
+  opacity: 0.9;
+  margin-right: 1rem;
+}
+
+/* Body Styles */
+.card-body {
+  flex: 1;
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  overflow: auto;
+  min-height: 0;
+  max-height: calc(100% - 120px); /* Restar el espacio aproximado de header y footer */
+}
+
+.card-body-top {
+  padding: 1rem;
+  font-weight: 500;
+  color: #2D3748;
+  background: #F7FAFC;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.card-body-center {
+  flex: 1;
+  overflow: auto; /* Permite scroll solo en esta sección */
+  min-height: 0; /* Importante para que flex: 1 funcione */
+  padding: 0.25rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.card-body-bottom {
+  padding: 1rem;
+  background: #F7FAFC;
+  border-top: 1px solid #E2E8F0;
+  color: #4A5568;
+  font-size: 0.875rem;
+}
+
+/* Footer Styles */
+.card-footer {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #EDF2F7;
+  border-top: 1px solid #E2E8F0;
+  min-height: 60px;
+  flex-shrink: 0; /* Evitar que el footer se encoja */
+}
+
+.card-footer-left {
+  color: #4A5568;
+  font-weight: 500;
+  margin-left: 1rem;
+}
+
+.card-footer-right {
+  color: #718096;
+  margin-right: 1rem;
+}
+
+/* Active State */
+.card.active {
+  width: 60%;  
+  border-color: magenta;
+  box-shadow: 0 0 25px magenta;
 }
