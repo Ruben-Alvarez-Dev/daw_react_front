@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
 :root {
   --bg-navbar: #2c3e50;    /* Azul oscuro */
   --bg-aside: #34495e;     /* Gris azulado */
@@ -22,10 +30,9 @@ body {
 }
 
 #root {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-  margin: 0;
-  padding: 0;
+  overflow: hidden;
 }
 
 .grid-container {

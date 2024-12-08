@@ -1,0 +1,35 @@
+.label {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  height: 32px;
+}
+
+.label-default {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--light-text);
+}
+
+.label-primary {
+  background-color: rgba(var(--primary-rgb), 0.1);
+  color: var(--primary);
+}
+
+.label-success {
+  background-color: rgba(var(--success-rgb), 0.1);
+  color: var(--success);
+}
+
+.label-warning {
+  background-color: rgba(var(--warning-rgb), 0.1);
+  color: var(--warning);
+}
+
+.label-danger {
+  background-color: rgba(var(--danger-rgb), 0.1);
+  color: var(--danger);
+}
