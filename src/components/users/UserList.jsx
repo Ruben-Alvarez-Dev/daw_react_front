@@ -16,15 +16,15 @@ const UserList = ({ users, selectedUserId, onUserSelect, isActive, onActivate })
     if (!searchTerm) return users;
     const searchTermLower = searchTerm.toLowerCase();
     return users.filter(user => 
-      user.name.toLowerCase().includes(searchTermLower) ||
-      user.email.toLowerCase().includes(searchTermLower) ||
-      user.phone.toLowerCase().includes(searchTermLower)
+      (user.name?.toLowerCase() || '').includes(searchTermLower) ||
+      (user.email?.toLowerCase() || '').includes(searchTermLower) ||
+      (user.phone?.toLowerCase() || '').includes(searchTermLower)
     );
   }, [users, searchTerm]);
 
   return (
     <Card
-      id="management"
+      id="UserList"
       header={<h2>UserList.jsx</h2>}
       body={
         <div className="user-list-container">
@@ -57,7 +57,7 @@ const UserList = ({ users, selectedUserId, onUserSelect, isActive, onActivate })
                     <div className="user-name">{user.name}</div>
                     <div className="user-email">{user.email}</div>
                     <div className="user-phone">{user.phone}</div>
-                    <Label text={user.role} type={user.role.toLowerCase()} />
+                    {user.role && <Label text={user.role} type={user.role.toLowerCase()} />}
                   </div>
                   <div className="user-details-row">
                     <div className="user-id">ID: #{user.id_user}</div>

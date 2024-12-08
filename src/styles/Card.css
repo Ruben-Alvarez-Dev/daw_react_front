@@ -1,5 +1,6 @@
 .card {
   height: 100%;
+  max-width: 60%;
   background-color: var(--bg-navbar);
   border-radius: 12px;
   display: flex;

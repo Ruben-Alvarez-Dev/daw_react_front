@@ -1,20 +1,17 @@
 {
   "users": [
     {
-      "id_user": 1,
-      "name": "user",
-      "email": "admin@email.com",
-      "password": "admin123",
+      "id": "1",
+      "name": "admin",
+      "email": "admin@admin.com",
       "role": "admin",
-      "phone": "666111111",
-      "address": "Calle Mayor 15",
-      "location": "Madrid",
-      "zip": "28013",
-      "counter": 0,
-      "isVip": false
+      "phone": "666333444",
+      "location": "ssss",
+      "address": "2rgfrgfq",
+      "zip": "34234124"
     },
     {
-      "id_user": 2,
+      "id": "2",
       "name": "supervisor",
       "email": "supervisor@email.com",
       "password": "super123",
@@ -27,7 +24,7 @@
       "isVip": false
     },
     {
-      "id_user": 3,
+      "id": "3",
       "name": "customer",
       "email": "customer@email.com",
       "password": "customer123",
@@ -40,7 +37,7 @@
       "isVip": false
     },
     {
-      "id_user": 4,
+      "id": "4",
       "name": "María López",
       "email": "maria.lopez@email.com",
       "password": "maria123",
@@ -53,7 +50,7 @@
       "isVip": false
     },
     {
-      "id_user": 5,
+      "id": "5",
       "name": "Juan Pérez",
       "email": "juan.perez@email.com",
       "password": "juan123",
@@ -64,11 +61,31 @@
       "zip": "48011",
       "counter": 0,
       "isVip": false
+    },
+    {
+      "id": "bbc2",
+      "name": "aaa",
+      "email": "aaa@aaa.com",
+      "role": "customer",
+      "phone": "111",
+      "location": "aaaa",
+      "address": "aaaa",
+      "zip": "1111"
+    },
+    {
+      "id": "bbc2",
+      "name": "qqqaaa",
+      "email": "aaa@aaa.com",
+      "role": "customer",
+      "phone": "111",
+      "location": "aaaa",
+      "address": "aaaa",
+      "zip": "1111"
     }
   ],
   "restaurants": [
     {
-      "id_restaurant": 1,
+      "id": "1",
       "name": "La Louche Principal",
       "address": "Calle Gran Vía 1, Madrid",
       "phone": "+34 911222333",
@@ -78,7 +95,7 @@
   ],
   "tables": [
     {
-      "id_table": 1,
+      "id": "1",
       "restaurant_id": 1,
       "number": 1,
       "capacity": 4,
@@ -88,7 +105,7 @@
   ],
   "reservations": [
     {
-      "id_reservation": 1,
+      "id": "1",
       "user_id": 3,
       "restaurant_id": 1,
       "table_id": 1,

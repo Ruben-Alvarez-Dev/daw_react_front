@@ -30,15 +30,10 @@ const Navbar = () => {
         {selectedUser && (
           <Label 
             text={selectedUser.name + " - " + selectedUser.email}
-            variant="info"
+            type="info"
           />
         )}
-        {activeCard && (
-          <Label 
-            text={activeCard.title} 
-            variant="info"
-          />
-        )}
+
         <div className="navbar-buttons">
           {user && (
             <Label 
@@ -47,22 +42,28 @@ const Navbar = () => {
             />
           )}
           <Button 
-            text="Login" 
             variant="success" 
             onClick={handleLogin}
-            status={user ? "disable" : "enable"}
-          />
-          <Button 
-            text="Register" 
-            variant="primary"
-            status={user ? "disable" : "enable"}
-          />
-          <Button 
-            text="Logout" 
-            variant="danger" 
-            status={user ? "enable" : "disable"}
-            onClick={handleLogout}
-          />
+            disabled={!!user}
+          >
+            Login
+          </Button>
+          {!user && (
+            <Button 
+              variant="primary"
+              disabled={!!user}
+            >
+              Register
+            </Button>
+          )}
+          {user && (
+            <Button 
+              variant="warning" 
+              onClick={handleLogout}
+            >
+              Logout
+            </Button>
+          )}
         </div>
       </div>
       <LoginModal 

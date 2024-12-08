@@ -1,23 +1,28 @@
 import PropTypes from 'prop-types';
 import '../styles/Button.css';
 
-const Button = ({ text, type = "button", status = "enable", variant = "primary", onClick }) => {
+const deleteKeywords = ['eliminar', 'borrar', 'delete', 'remove'];
+
+const Button = ({ children, type = "button", disabled = false, variant = "primary", onClick }) => {
+  const isDeleteButton = typeof children === 'string' && deleteKeywords.includes(children.toLowerCase());
+  const buttonClass = `custom-button ${disabled ? 'disable' : 'enable'} ${variant} ${isDeleteButton ? 'delete-action' : ''}`;
+
   return (
     <button 
       type={type}
-      className={`custom-button ${status} ${variant}`}
-      disabled={status === "disable"}
+      className={buttonClass}
+      disabled={disabled}
       onClick={onClick}
     >
-      {text}
+      {children}
     </button>
   );
 };
 
 Button.propTypes = {
-  text: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   type: PropTypes.oneOf(["button", "submit", "reset"]),
-  status: PropTypes.oneOf(["enable", "disable"]),
+  disabled: PropTypes.bool,
   variant: PropTypes.oneOf(["primary", "secondary", "success", "warning", "danger"]),
   onClick: PropTypes.func
 };

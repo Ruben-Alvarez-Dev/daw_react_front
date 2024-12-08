@@ -15,6 +15,19 @@
   background-color: transparent;
 }
 
+/* Estilo especial para botones de eliminación */
+.custom-button.delete-action {
+  color: #e74c3c !important;
+  border-color: #e74c3c !important;
+  background-color: transparent !important;
+}
+
+.custom-button.delete-action:hover:not(:disabled) {
+  background-color: #e74c3c !important;
+  color: #000000 !important;
+  box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.3) !important;
+}
+
 .custom-button.primary:hover:not(:disabled) {
   background-color: #4a90e2;
   border-color: #4a90e2;
@@ -47,8 +60,9 @@
 }
 
 .custom-button.disable {
-  background-color: transparent;
-  border-color: rgba(255, 255, 255, 0.3);
-  color: rgba(255, 255, 255, 0.3);
+  background-color: transparent !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  color: rgba(255, 255, 255, 0.3) !important;
   opacity: 1;
+  cursor: not-allowed;
 }
