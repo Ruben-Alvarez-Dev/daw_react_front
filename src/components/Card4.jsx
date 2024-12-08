@@ -14,7 +14,7 @@ const Card4 = ({ isActive, onClick, selectedEmployee, onEmployeeUpdate }) => {
     <Card 
       headerLeft="Editar Empleado"
       headerRight={selectedEmployee ? `#${selectedEmployee.id}` : '-'}
-      bodyTop="Formulario de edición"
+      bodyTop=""
       bodyCenter={
         <Form
           data={selectedEmployee}
@@ -22,9 +22,9 @@ const Card4 = ({ isActive, onClick, selectedEmployee, onEmployeeUpdate }) => {
           isCardActive={isActive}
         />
       }
-      bodyBottom={selectedEmployee ? `Editando: ${selectedEmployee.nombre}` : 'Esperando selección...'}
-      footerLeft="Estado"
-      footerRight={selectedEmployee ? 'Editando' : 'Inactivo'}
+      bodyBottom={selectedEmployee ? `Editando: ${selectedEmployee.nombre}` : ''}
+      footerLeft=""
+      footerRight={selectedEmployee ? '' : ''}
       footerCenter={
         <>
           <Button variant="primary">Primary</Button>

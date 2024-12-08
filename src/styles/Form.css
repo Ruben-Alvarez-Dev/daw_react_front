@@ -24,7 +24,7 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  color: #666;
+  color: antiquewhite;
   font-style: italic;
   text-align: center;
   padding: 1rem;
@@ -39,7 +39,7 @@
 
 .form-group label {
   font-size: 0.75rem;
-  color: #4a5568;
+  color: antiquewhite;
   font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
@@ -49,18 +49,19 @@
 .form-group input,
 .form-group select {
   padding: 0.5rem;
-  border: 1px solid #e2e8f0;
+  border: 1px solid antiquewhite;
   border-radius: 4px;
   font-size: 0.875rem;
-  background: white;
+  color: antiquewhite;
+  background: rgba(255, 255, 255, 0.1);
   transition: all 0.2s;
   width: 100%;
   min-width: 0;
 }
 
 .form-group input:disabled {
-  background: #f7fafc;
-  color: #718096;
+  background: #000000;
+  color:antiquewhite;
 }
 
 .form-group input:focus,
@@ -68,6 +69,7 @@
   outline: none;
   border-color: #4A90E2;
   box-shadow: 0 0 0 1px #4A90E2;
+  color: yellow;
 }
 
 .form-actions {

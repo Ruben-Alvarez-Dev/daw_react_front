@@ -109,12 +109,6 @@ const Form = ({ data, onSave, isCardActive }) => {
           />
         </div>
       </div>
-
-      <div className="form-actions">
-        <button type="submit" className="save-button">
-          Guardar
-        </button>
-      </div>
     </form>
   );
 };
