@@ -3,7 +3,7 @@ import { MdAdminPanelSettings, MdSupervisorAccount, MdPerson } from 'react-icons
 import Modal from './Modal';
 import '../styles/LoginModal.css';
 
-const LoginModal = ({ isOpen, onClose, onLogin }) => {
+const LoginModal = ({ isOpen, onClose, onLogin, disabledAccept }) => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -41,25 +41,33 @@ const LoginModal = ({ isOpen, onClose, onLogin }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Select User">
-      <div className="login-options">
-        {users.map((user) => (
-          <div 
-            key={user.id_user} 
-            className="user-option" 
-            onClick={() => handleUserSelect(user)}
-          >
-            <div className="user-icon">
-              {getIconByRole(user.role)}
+    <Modal 
+      isOpen={isOpen} 
+      onClose={onClose} 
+      title="Select User"
+      onAccept={disabledAccept ? () => {} : handleUserSelect} 
+      onCancel={onClose} 
+      disabledAccept={disabledAccept}
+      children={
+        <div className="login-options">
+          {users.map((user) => (
+            <div 
+              key={user.id_user} 
+              className="user-option" 
+              onClick={() => handleUserSelect(user)}
+            >
+              <div className="user-icon">
+                {getIconByRole(user.role)}
+              </div>
+              <div className="user-info">
+                <span className="user-name">{user.name}</span>
+                <span className="user-role">{user.role}</span>
+              </div>
             </div>
-            <div className="user-info">
-              <span className="user-name">{user.name}</span>
-              <span className="user-role">{user.role}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </Modal>
+          ))}
+        </div>
+      }
+    />
   );
 };
 

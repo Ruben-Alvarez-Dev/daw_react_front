@@ -1,6 +1,6 @@
 .aside {
   color: antiquewhite;
-  width: 50px;
+  width: 4.5rem;
   height: 100%;
   padding: 0rem;
   margin: 0;
@@ -58,7 +58,7 @@
   min-width: 1.5rem;
   position: relative;
   left: 0;
-  margin: 1rem;
+  margin: 1rem 1.5rem;
 }
 
 .aside-menu a span {
