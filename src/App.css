@@ -34,24 +34,81 @@ body {
     "navbar navbar"
     "aside display"
     "footer footer";
-  grid-template-columns: 250px 1fr;
+  grid-template-columns: 70px 1fr;
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
   gap: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: grid-template-columns 0.3s ease;
+}
+
+.grid-container:has(.aside:hover) {
+  grid-template-columns: 250px 1fr;
 }
 
 .navbar {
   grid-area: navbar;
   background-color: var(--bg-navbar);
-  padding: 1rem;
+  padding: 0.3rem 1rem;
+  display: flex;
+  align-items: center;
 }
 
 .aside {
   grid-area: aside;
   background-color: var(--bg-aside);
-  padding: 1rem;
+  padding: 1rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 70px;
+  transition: width 0.3s ease;
+}
+
+.aside:hover {
+  width: 250px;
+}
+
+.aside-menu {
+  list-style: none;
+  padding: 3.5rem 0 0 0;
+  margin: 0;
+}
+
+.aside-menu li {
+  margin-bottom: 0.5rem;
+  padding: 0 1rem;
+}
+
+.aside-menu a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--light-text);
+  padding: 0.7rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  font-size: 1.1rem;
+}
+
+.aside-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--light-text);
+}
+
+.aside-menu svg {
+  font-size: 1.5rem;
+  min-width: 1.5rem;
+}
+
+.aside-menu span {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  margin-left: 1rem;
+}
+
+.aside:hover .aside-menu span {
+  opacity: 1;
 }
 
 .display {
@@ -74,8 +131,31 @@ body {
   text-align: center;
 }
 
-h1, h2 {
+h1 {
+  font-size: 0.6rem;
+  margin: 0;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+}
+
+h2 {
+  font-size: 1.1rem;
   margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+h4 {
+  font-size: 0.95rem;
+  margin-bottom: 0.6rem;
+}
+
+h5, h6 {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
 }
 
 .logo {
