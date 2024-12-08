@@ -1,10 +1,10 @@
 :root {
-  /* Dark Theme Colors */
-  --dark-primary: #1E2124;    /* Color base para fondos */
-  --dark-secondary: #282B30;  /* Elementos secundarios o hover states */
-  --dark-tertiary: #36393F;   /* Cards o elementos contenedores */
-  --dark-quaternary: #424549; /* Elementos interactivos o bordes */
-  --dark-quinary: #7A7F85;    /* Textos secundarios o iconos */
+  /* Paleta de colores oscuros suaves */
+  --dark-primary: #2E2F33;    /* Color base para fondos */
+  --dark-secondary: #3A3B40;  /* Elementos secundarios o hover states */
+  --dark-tertiary: #484A4F;   /* Cards o elementos contenedores */
+  --dark-quaternary: #56585D; /* Elementos interactivos o bordes */
+  --light-gray: #A0A3A8;      /* Textos secundarios o iconos */
 
   /* Common Colors */
   --white: #ffffff;

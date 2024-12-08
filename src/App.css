@@ -18,6 +18,7 @@ html, body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  background-color: var(--bg-container);
 }
 
 /* Contenedor principal */
@@ -32,12 +33,12 @@ html, body {
 nav {
   width: 100%;
   height: 60px; /* altura fija */
-  background-color: var(--bg-navbar);
   flex-shrink: 0; /* evita que se encoja */
   display: flex;
   align-items: center;
-  padding: 0 20px;
-  color: white;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  color: #ffffff;
 }
 
 /* Contenedor de aside + main - Línea 2 */
@@ -51,11 +52,12 @@ nav {
 /* Aside */
 aside {
   width: 70px;
-  background-color: var(--bg-aside);
   flex-shrink: 0; /* mantiene su ancho */
   transition: width 0.3s ease;
   padding: 1rem;
-  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 aside:hover {
@@ -65,14 +67,12 @@ aside:hover {
 /* Main content */
 .display {
   flex: 1; /* toma el espacio restante */
-  background-color: var(--bg-display);
   overflow-y: auto;
   padding: 1rem;
 }
 
 .display-container {
   height: 100%;
-  background-color: rgba(110, 130, 72, 0.82);
   border-radius: 8px;
   padding: 1rem;
 }
@@ -81,20 +81,21 @@ aside:hover {
 footer {
   width: 100%;
   height: 60px; /* altura fija */
-  background-color: var(--bg-footer);
   flex-shrink: 0; /* evita que se encoja */
   display: flex;
   align-items: center;
   justify-content: center;
-  color: black;
+  padding: var(--spacing-md);
+  color: var(--white);
+  background-color: transparent;
+
 }
 
-.App {
-  background-color: var(--dark-primary);
+.app {
 }
 
 .grid-container {
-  background-color: var(--dark-primary);
+
 }
 
 /* Estilos responsive */
