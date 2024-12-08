@@ -2,19 +2,71 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  background-color: #333;
-  color: white;
+  padding: 1rem 2rem;
+  background-color: var(--dark-primary);
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .navbar-brand {
+  display: flex;
+  align-items: center;
+  font-size: var(--text-lg);
   font-weight: bold;
-  font-size: 1.2rem;
+  color: var(--white);
+  text-decoration: none;
 }
 
-.active-container {
-  padding: 0.5rem 1rem;
+.navbar-brand h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-buttons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.navbar-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+/* User Info Styles */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-right: 1rem;
+}
+
+.user-tag {
   background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  font-size: 0.9rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+}
+
+.user-tag-success {
+  background-color: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+}
+
+.user-tag-warning {
+  background-color: rgba(241, 196, 15, 0.2);
+  color: #f1c40f;
+}
+
+.user-tag-danger {
+  background-color: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
 }

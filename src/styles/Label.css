@@ -1,0 +1,51 @@
+.label {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.label.default {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.label.info {
+  background-color: rgba(52, 152, 219, 0.2);
+  color: #3498db;
+}
+
+.label.success {
+  background-color: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+}
+
+.label.warning {
+  background-color: rgba(241, 196, 15, 0.2);
+  color: #f1c40f;
+}
+
+.label.danger {
+  background-color: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+}
+
+/* Role-specific styles */
+.label.admin {
+  background-color: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+}
+
+.label.supervisor {
+  background-color: rgba(241, 196, 15, 0.2);
+  color: #f1c40f;
+}
+
+.label.user {
+  background-color: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+}

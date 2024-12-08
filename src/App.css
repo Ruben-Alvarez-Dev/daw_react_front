@@ -11,6 +11,7 @@
   --bg-footer: #FFD93D;    /* Amarillo */
   --bg-container: #3d4852; /* Gris más claro para el contenedor */
   --light-text: #ecf0f1;
+  --dark-primary: #1E2124;
 }
 
 html, body {
@@ -86,6 +87,14 @@ footer {
   align-items: center;
   justify-content: center;
   color: black;
+}
+
+.App {
+  background-color: var(--dark-primary);
+}
+
+.grid-container {
+  background-color: var(--dark-primary);
 }
 
 /* Estilos responsive */

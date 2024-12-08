@@ -1,16 +1,78 @@
-import '../styles/Navbar.css'
+import { useState, useContext } from 'react';
+import Button from './Button';
+import Label from './Label';
+import LoginModal from './LoginModal';
+import { useUser } from '../context/UserContext';
+import { useCard } from '../context/CardContext';
+import { AppContext } from '../context/AppContext';
+import '../styles/Navbar.css';
 
-const Navbar = ({ activeContainer }) => {
+const Navbar = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { user, login, logout } = useUser();
+  const { activeCard } = useCard();
+  const { selectedUser } = useContext(AppContext);
+
+  const handleLogin = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleLogout = () => {
+    logout();
+  };
+
   return (
     <nav className="navbar">
-      <div className="navbar-brand">Mi App</div>
-      {activeContainer && (
-        <div className="active-container">
-          {activeContainer}
-        </div>
-      )}
-    </nav>
-  )
-}
+      <div className="navbar-brand">
+        <h1>La Louche</h1>
+      </div>
+      <div className="navbar-content">
+        {selectedUser && (
+          <Label 
+            text={selectedUser.name + " - " + selectedUser.email}
+            type="info"
+          />
+        )}
 
-export default Navbar
+        <div className="navbar-buttons">
+          {user && (
+            <Label 
+              text={user.role}
+              type={user.role.toLowerCase()}
+            />
+          )}
+          <Button 
+            variant="success" 
+            onClick={handleLogin}
+            disabled={!!user}
+          >
+            Login
+          </Button>
+          {!user && (
+            <Button 
+              variant="primary"
+              disabled={!!user}
+            >
+              Register
+            </Button>
+          )}
+          {user && (
+            <Button 
+              variant="warning" 
+              onClick={handleLogout}
+            >
+              Logout
+            </Button>
+          )}
+        </div>
+      </div>
+      <LoginModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)}
+        onLogin={login}
+      />
+    </nav>
+  );
+};
+
+export default Navbar;

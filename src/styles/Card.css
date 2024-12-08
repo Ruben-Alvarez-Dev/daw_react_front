@@ -1,8 +1,8 @@
 .card {
   display: flex;
   flex-direction: column;
-  height: 90%;
-  max-height: 90%;
+  height: 85%;
+  max-height: 85%;
   min-height: 0; /* Permitir que se encoja si es necesario */
   background: white;
   border-radius: 8px;

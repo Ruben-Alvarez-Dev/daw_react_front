@@ -1,7 +1,9 @@
+import '../styles/Footer.css';
+
 const Footer = () => {
   return (
-    <footer>
-      <h2>Footer</h2>
+    <footer className="footer">
+      <p>&copy; 2024 La Louche. Todos los derechos reservados.</p>
     </footer>
   );
 };
