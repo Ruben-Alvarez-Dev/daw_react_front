@@ -27,11 +27,35 @@
   padding: 1rem;
   flex: 1;
   overflow-y: auto;
+  max-height: 400px;
+}
+
+.card-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.card-body::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.card-body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.card-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .card-footer {
+  height: 80px;
   padding: 1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Estilos para cuando hay múltiples cards en un contenedor */
