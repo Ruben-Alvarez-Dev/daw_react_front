@@ -12,22 +12,22 @@ const Aside = () => {
             </Link>
           </li>
           <li>
-            <Link to="/usuarios">
+            <Link to="/users">
               <MdPeople /> <span>Usuarios</span>
             </Link>
           </li>
           <li>
-            <Link to="/restaurantes">
+            <Link to="/restaurants">
               <MdRestaurant /> <span>Restaurantes</span>
             </Link>
           </li>
           <li>
-            <Link to="/mesas">
+            <Link to="/tables">
               <MdTableBar /> <span>Mesas</span>
             </Link>
           </li>
           <li>
-            <Link to="/reservas">
+            <Link to="/reservations">
               <MdEventNote /> <span>Reservas</span>
             </Link>
           </li>

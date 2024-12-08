@@ -1,6 +1,6 @@
 import { useCard } from '../context/CardContext';
 import Card from '../components/Card';
-import '../styles/views/Users.css';
+import '../styles/Users.css';
 
 const Users = () => {
   const { activeCard, updateActiveCard } = useCard();
