@@ -1,0 +1,42 @@
+.card {
+  height: 100%;
+  background-color: var(--bg-navbar);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  border: 1px solid var(--bg-navbar);
+  box-shadow: 0 0 10px rgba(var(--primary-rgb), 0);
+  padding: 0;
+  flex: 1;
+  min-width: 0;
+}
+
+.card.active {
+  border-color: var(--primary);
+  box-shadow: 0 0 10px rgba(var(--primary-rgb), 0.3);
+  flex: 0 0 50%;
+}
+
+.card-header {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-body {
+  padding: 1rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.card-footer {
+  padding: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Estilos para cuando hay múltiples cards en un contenedor */
+.cards-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}

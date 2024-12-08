@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import Button from './Button';
 import Modal from './Modal';
+import Label from './Label';
 import { useUser } from '../context/UserContext';
+import { useCard } from '../context/CardContext';
 import '../styles/Navbar.css';
 
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { user, login, logout } = useUser();
+  const { activeCard } = useCard();
 
   const handleLogin = () => {
     setIsModalOpen(true);
@@ -35,24 +38,20 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <h1>la louche</h1>
+        <h1>La Louche</h1>
       </div>
       <div className="navbar-content">
         {user && (
-          <div className="user-info">
-            <div className="user-tag">
-              <span>{user.name}</span>
-            </div>
-            <div className="user-tag">
-              <span>{user.email}</span>
-            </div>
-            <div className="user-tag">
-              <span>{user.phone}</span>
-            </div>
-            <div className={`user-tag user-tag-${getRoleVariant(user.role)}`}>
-              <span>{user.role}</span>
-            </div>
-          </div>
+          <Label 
+            text={user.role} 
+            type={user.role.toLowerCase()} 
+          />
+        )}
+        {activeCard && (
+          <Label 
+            text={activeCard.title} 
+            type="primary"
+          />
         )}
         <div className="navbar-buttons">
           <Button 

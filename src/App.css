@@ -121,12 +121,12 @@ body {
 .display {
   grid-area: display;
   background-color: var(--bg-display);
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .display-container {
   background-color: var(--bg-container);
-  padding: 1.5rem;
+  padding: 0rem;
   border-radius: 25px;
   height: 100%;
 }
@@ -186,7 +186,7 @@ h5, h6 {
 }
 
 .card {
-  padding: 2em;
+  padding: 1em;
 }
 
 .read-the-docs {

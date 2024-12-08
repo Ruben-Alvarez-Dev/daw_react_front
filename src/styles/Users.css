@@ -1,0 +1,63 @@
+.users-container {
+  padding: 2rem;
+  color: var(--light-text);
+}
+
+.users-container h2 {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.card-wrapper {
+  cursor: pointer;
+}
+
+.user-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-card-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.role-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.role-badge.admin {
+  color: var(--danger);
+  border: 1px solid var(--danger);
+}
+
+.role-badge.supervisor {
+  color: var(--warning);
+  border: 1px solid var(--warning);
+}
+
+.role-badge.customer {
+  color: var(--success);
+  border: 1px solid var(--success);
+}
+
+.user-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.user-card-body p {
+  margin: 0;
+}
+
+.user-card-footer {
+  display: flex;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+}
