@@ -1,0 +1,44 @@
+.dashboard-view {
+  background-color: rgba(75, 192, 192, 0.2);
+  height: 100%;
+  padding: 1rem;
+}
+
+.users-view {
+  background-color: rgba(255, 99, 132, 0.2);
+  height: 100%;
+  padding: 1rem;
+}
+
+.restaurants-view {
+  background-color: rgba(54, 162, 235, 0.2);
+  height: 100%;
+  padding: 1rem;
+}
+
+.tables-view {
+  background-color: rgba(255, 206, 86, 0.2);
+  height: 100%;
+  padding: 1rem;
+}
+
+.reservations-view {
+  background-color: rgba(153, 102, 255, 0.2);
+  height: 100%;
+  padding: 1rem;
+}
+
+.settings-view {
+  background-color: rgba(255, 159, 64, 0.2);
+  height: 100%;
+  padding: 1rem;
+}
+
+.dashboard-content,
+.users-content,
+.restaurants-content,
+.tables-content,
+.reservations-content,
+.settings-content {
+  background-color: transparent;
+}

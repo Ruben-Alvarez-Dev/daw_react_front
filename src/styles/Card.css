@@ -3,7 +3,7 @@
   flex-direction: column;
   height: 85%;
   max-height: 85%;
-  min-height: 0; /* Permitir que se encoja si es necesario */
+  min-height: 0;
   background: white;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -19,7 +19,7 @@
   justify-content: space-between;
   align-items: center;
   min-height: 60px;
-  flex-shrink: 0; /* Evitar que el header se encoja */
+  flex-shrink: 0;
 }
 
 .card-header-left {
@@ -39,7 +39,7 @@
   flex-direction: column;
   overflow: auto;
   min-height: 0;
-  max-height: calc(100% - 120px); /* Restar el espacio aproximado de header y footer */
+  max-height: calc(100% - 120px);
 }
 
 .card-body-top {
@@ -52,8 +52,8 @@
 
 .card-body-center {
   flex: 1;
-  overflow: auto; /* Permite scroll solo en esta sección */
-  min-height: 0; /* Importante para que flex: 1 funcione */
+  overflow: auto;
+  min-height: 0;
   padding: 0.25rem;
   margin: 1rem 0;
   text-align: center;
@@ -74,6 +74,7 @@
   padding: 0.5rem 1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   min-height: 60px;
+  flex-shrink: 0;
 }
 
 .card-footer-left {

@@ -18,7 +18,7 @@ html, body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background-color: var(--bg-container);
+  background: linear-gradient(135deg, var(--bg-container) 0%, var(--dark-primary) 100%);
 }
 
 /* Contenedor principal */
@@ -27,6 +27,7 @@ html, body {
   flex-direction: column;
   width: 100vw;
   height: 100vh;
+  background-color: transparent;
 }
 
 /* Navbar - Línea 1 */
@@ -47,6 +48,7 @@ nav {
   flex: 1; /* toma el espacio restante */
   width: 100%;
   overflow: hidden;
+  background-color: transparent;
 }
 
 /* Aside */
