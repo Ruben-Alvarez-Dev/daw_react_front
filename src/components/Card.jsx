@@ -7,6 +7,7 @@ const Card = ({
   bodyCenter, 
   bodyBottom, 
   footerLeft, 
+  footerCenter,
   footerRight,
   isActive,
   onClick 
@@ -30,6 +31,7 @@ const Card = ({
 
       <div className="card-footer">
         <div className='card-footer-left'>{footerLeft}</div>
+        <div className='card-footer-center'>{footerCenter}</div>
         <div className='card-footer-right'>{footerRight}</div>
       </div>
     </div>

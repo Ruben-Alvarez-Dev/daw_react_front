@@ -69,25 +69,30 @@
 
 /* Footer Styles */
 .card-footer {
-  padding: 1rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background: #EDF2F7;
-  border-top: 1px solid #E2E8F0;
+  padding: 0.5rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   min-height: 60px;
-  flex-shrink: 0; /* Evitar que el footer se encoja */
 }
 
 .card-footer-left {
-  color: #4A5568;
-  font-weight: 500;
-  margin-left: 1rem;
+  flex: 0 1 auto;
+  white-space: nowrap;
+}
+
+.card-footer-center {
+  flex: 1 1 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0 1rem;
 }
 
 .card-footer-right {
-  color: #718096;
-  margin-right: 1rem;
+  flex: 0 1 auto;
+  white-space: nowrap;
 }
 
 /* Active State */
