@@ -20,6 +20,12 @@
   gap: 2rem;
 }
 
+.navbar-center {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .user-info {
   display: flex;
   align-items: center;
@@ -58,4 +64,31 @@
   display: flex;
   gap: 1rem;
   align-items: center;
+}
+
+.selected-user-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.selected-user-label .user-name {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.selected-user-label .user-email {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.active-card {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: var(--primary);
 }

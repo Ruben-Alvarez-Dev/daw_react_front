@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from 'react';
 
-const AppContext = createContext();
+export const AppContext = createContext();
 
 export const useAppContext = () => {
   const context = useContext(AppContext);
@@ -13,11 +13,17 @@ export const useAppContext = () => {
 export const AppContextProvider = ({ children }) => {
   // Aquí definimos los estados globales
   const [theme, setTheme] = useState('dark');
+  const [activeCard, setActiveCard] = useState('');
+  const [selectedUser, setSelectedUser] = useState(null);
   
   // Valores que queremos compartir en la aplicación
   const value = {
     theme,
     setTheme,
+    activeCard,
+    setActiveCard,
+    selectedUser,
+    setSelectedUser,
     // Aquí puedes añadir más estados y funciones según necesites
   };
 

@@ -1,34 +1,27 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+import { useCard } from '../context/CardContext';
 import '../styles/Card.css';
 
-const Card = ({ header, body, footer, isActive, onActivate }) => {
-  const handleClick = (e) => {
-    if (!isActive) {
-      e.preventDefault();
-      e.stopPropagation();
-      onActivate();
+const Card = ({ header, body, footer, id }) => {
+  const { activeCard, updateActiveCard } = useCard();
+  const isActive = activeCard.id === id;
+
+  const handleClick = () => {
+    if (id) {
+      updateActiveCard(id, header.props.children);
     }
   };
 
   return (
     <div 
-      className={`card ${isActive ? 'active' : ''}`}
+      className={`card ${isActive ? 'active' : ''} ${id ? 'clickable' : ''}`}
       onClick={handleClick}
     >
       <div className="card-header">{header}</div>
       <div className="card-body">{body}</div>
-      <div className="card-footer">{footer}</div>
+      {footer && <div className="card-footer">{footer}</div>}
     </div>
   );
-};
-
-Card.propTypes = {
-  header: PropTypes.node,
-  body: PropTypes.node,
-  footer: PropTypes.node,
-  isActive: PropTypes.bool,
-  onActivate: PropTypes.func
 };
 
 export default Card;

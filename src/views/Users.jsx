@@ -1,84 +1,106 @@
-import { useCard } from '../context/CardContext';
+import React, { useState, useEffect, useContext } from 'react';
+import { AppContext } from '../context/AppContext';
 import Card from '../components/Card';
 import '../styles/Users.css';
 
 const Users = () => {
-  const { activeCard, updateActiveCard } = useCard();
+  const { setSelectedUser } = useContext(AppContext);
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [selectedUserId, setSelectedUserId] = useState(null);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/users');
+        if (!response.ok) {
+          throw new Error('Failed to fetch users');
+        }
+        const data = await response.json();
+        setUsers(data);
+        setError(null);
+      } catch (err) {
+        setError('Error loading users');
+        console.error('Error:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUsers();
+  }, []);
+
+  const handleUserSelect = (user) => {
+    setSelectedUserId(user.id_user);
+    setSelectedUser({
+      name: user.name,
+      email: user.email
+    });
+  };
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
 
   return (
     <div className="cards-container">
       <Card
+        id="management"
         header={<h2>User Management</h2>}
         body={
           <div>
-            <h3>Overview</h3>
-            <p>Manage your users here</p>
-            <p>Total users: 4</p>
-            <p>Active users: 3</p>
-            <p>Inactive users: 1</p>
-
-            <h3>User Categories</h3>
-            <p>Administrators: 2</p>
-            <p>Regular users: 2</p>
-            <p>Premium users: 0</p>
-            <p>Trial users: 1</p>
-            <p>Banned users: 0</p>
-
-            <h3>Recent Activity</h3>
-            <p>New users today: 1</p>
-            <p>Logins today: 15</p>
-            <p>Failed login attempts: 3</p>
-            <p>Password resets: 2</p>
-            <p>Profile updates: 5</p>
-
-            <h3>System Status</h3>
-            <p>System uptime: 15 days</p>
-            <p>Last backup: Today 03:00 AM</p>
-            <p>Database status: Online</p>
-            <p>API status: Operational</p>
-            <p>Cache status: Optimized</p>
-
-            <h3>Security Overview</h3>
-            <p>Two-factor enabled users: 2</p>
-            <p>Security incidents: 0</p>
-            <p>Pending security reviews: 1</p>
-            <p>Last security scan: 2 hours ago</p>
-            <p>Vulnerabilities detected: None</p>
-
-            <h3>Pending Tasks</h3>
-            <p>User approvals: 3</p>
-            <p>Role change requests: 2</p>
-            <p>Access requests: 4</p>
-            <p>Support tickets: 1</p>
-            <p>Bug reports: 0</p>
-
-            <h3>Compliance</h3>
-            <p>GDPR compliant users: 100%</p>
-            <p>Privacy policy accepted: 100%</p>
-            <p>Terms updated: 2 days ago</p>
-            <p>Data retention check: Passed</p>
-            <p>Audit logs: Up to date</p>
+            {users.length === 0 ? (
+              <p>No users found</p>
+            ) : (
+              <>
+                <p>Total users: {users.length}</p>
+                <div className="users-list">
+                  {users.map(user => (
+                    <div 
+                      key={user.id_user} 
+                      className={`user-item ${selectedUserId === user.id_user ? 'selected' : ''}`}
+                      onClick={() => handleUserSelect(user)}
+                    >
+                      <div className="user-main-info">
+                        <span className="user-name">{user.name}</span>
+                        <span className="user-email">{user.email}</span>
+                        <span className="user-phone">📱 {user.phone}</span>
+                        <span className={`user-role ${user.role}`}>{user.role}</span>
+                      </div>
+                      <div className="user-details">
+                        <span>ID: #{user.id_user}</span>
+                        <span className="user-counter">Visits: {user.counter}</span>
+                        <span>📍 {user.location}</span>
+                        <span>{user.address}</span>
+                        <span>ZIP: {user.zip}</span>
+                        {user.isVip && <span className="vip-badge">VIP</span>}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         }
         footer={<button className="custom-button primary">Add User</button>}
-        isActive={activeCard.id === 'management'}
-        onActivate={() => updateActiveCard('management', 'User Management')}
       />
+
       <Card
+        id="statistics"
         header={<h2>User Statistics</h2>}
         body={
           <div>
-            <p>Active users: 3</p>
-            <p>Admins: 1</p>
-            <p>Supervisors: 1</p>
-            <p>Customers: 2</p>
+            <p>Active users: {users.length}</p>
+            <p>Admins: {users.filter(u => u.role === 'admin').length}</p>
+            <p>Supervisors: {users.filter(u => u.role === 'supervisor').length}</p>
+            <p>Customers: {users.filter(u => u.role === 'customer').length}</p>
           </div>
         }
         footer={<button className="custom-button success">View Details</button>}
-        isActive={activeCard.id === 'statistics'}
-        onActivate={() => updateActiveCard('statistics', 'User Statistics')}
       />
+
       <Card
+        id="activity"
         header={<h2>User Activity</h2>}
         body={
           <div>
@@ -90,8 +112,6 @@ const Users = () => {
           </div>
         }
         footer={<button className="custom-button warning">View All Activity</button>}
-        isActive={activeCard.id === 'activity'}
-        onActivate={() => updateActiveCard('activity', 'User Activity')}
       />
     </div>
   );

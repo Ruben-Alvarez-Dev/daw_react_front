@@ -1,38 +1,24 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Button from './Button';
-import Modal from './Modal';
 import Label from './Label';
+import LoginModal from './LoginModal';
 import { useUser } from '../context/UserContext';
 import { useCard } from '../context/CardContext';
+import { AppContext } from '../context/AppContext';
 import '../styles/Navbar.css';
 
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { user, login, logout } = useUser();
   const { activeCard } = useCard();
+  const { selectedUser } = useContext(AppContext);
 
   const handleLogin = () => {
     setIsModalOpen(true);
   };
 
-  const handleUserSelect = (selectedUser) => {
-    login(selectedUser);
-    setIsModalOpen(false);
-  };
-
   const handleLogout = () => {
     logout();
-  };
-
-  const getRoleVariant = (role) => {
-    switch (role) {
-      case 'admin':
-        return 'danger';
-      case 'supervisor':
-        return 'warning';
-      default:
-        return 'success';
-    }
   };
 
   return (
@@ -47,11 +33,18 @@ const Navbar = () => {
             variant="primary"
           />
         )}
+        {selectedUser && (
+          <Label 
+            text={selectedUser.name}
+            subtext={selectedUser.email}
+            variant="info"
+          />
+        )}
         <div className="navbar-buttons">
           {user && (
             <Label 
               text={user.role} 
-              variant={getRoleVariant(user.role)} 
+              variant="success"
             />
           )}
           <Button 
@@ -73,14 +66,11 @@ const Navbar = () => {
           />
         </div>
       </div>
-
-      <Modal 
+      <LoginModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)}
-        title="Select User Type"
-      >
-        <div onClick={handleUserSelect} />
-      </Modal>
+        onLogin={login}
+      />
     </nav>
   );
 };
