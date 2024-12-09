@@ -40,5 +40,9 @@
 .tables-content,
 .reservations-content,
 .settings-content {
-  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  height: calc(100% - 3rem);
+  margin-top: 1rem;
 }

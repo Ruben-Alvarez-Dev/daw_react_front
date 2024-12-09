@@ -1,0 +1,30 @@
+.user-list-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 12px;
+}
+
+.user-list-item-line1,
+.user-list-item-line2 {
+  display: flex;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.user-list-item-line1 {
+  font-weight: 500;
+}
+
+.user-list-item-line2 {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9em;
+}
+
+.user-list-item-line1 span,
+.user-list-item-line2 span {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

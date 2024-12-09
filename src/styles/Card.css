@@ -9,7 +9,9 @@
   border-radius: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-
+  width: 40%;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 /* Header Styles */
@@ -84,10 +86,13 @@
 .card-footer-center {
   flex: 1 1 auto;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 1rem;
   padding: 0 1rem;
+}
+
+.card-footer-center > * {
+  margin: 0 0.5rem;
 }
 
 .card-footer-right {
@@ -97,7 +102,8 @@
 
 /* Active State */
 .card.active {
-  width: 60%;  
+  width: 60%;
   border-color: antiquewhite;
   box-shadow: 0 0 15px antiquewhite;
+  cursor: default;
 }

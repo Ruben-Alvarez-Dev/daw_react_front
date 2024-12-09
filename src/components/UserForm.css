@@ -1,0 +1,47 @@
+.user-form-message {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+
+.footer-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.delete-confirmation {
+  padding: 20px;
+}
+
+.user-details {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border-radius: 4px;
+  margin: 15px 0;
+}
+
+.user-details p {
+  margin: 8px 0;
+}
+
+.warning {
+  color: #dc3545;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.modal-form-container {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}

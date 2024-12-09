@@ -1,45 +1,28 @@
+import React from 'react';
 import '../styles/List.css';
 
-const List = ({ items, activeItem, onItemClick, isCardActive }) => {
+const List = ({ items, onItemClick, selectedItem, renderItem }) => {
   return (
     <div className="list-container">
-      {items.map((item, index) => (
-        <div 
-          key={index}
-          className={`list-item ${index === activeItem ? 'active' : ''} ${isCardActive ? 'card-active' : 'card-inactive'}`}
-          onClick={() => onItemClick(index)}
+      {items.map((item) => (
+        <div
+          key={item.id}
+          className={`list-item ${item.id === selectedItem?.id ? 'selected' : ''}`}
+          onClick={() => onItemClick(item)}
         >
-          {isCardActive ? (
-            // Layout tabulado para card activo
+          {renderItem ? renderItem(item) : (
             <div className="list-item-content">
-              <div className="list-item-row">
-                <span className="list-item-field">{item.id}</span>
-                <span className="list-item-field">{item.nombre}</span>
-                <span className="list-item-field">{item.edad}</span>
-                <span className="list-item-field">{item.profesion}</span>
-                <span className="list-item-field">{item.departamento}</span>
+              <div className="list-item-line1">
+                <span>{item.name}</span>
+                <span>{item.email}</span>
+                <span>{item.phone}</span>
               </div>
-              <div className="list-item-row">
-                <span className="list-item-field">{item.proyecto}</span>
-                <span className="list-item-field">{item.nivel}</span>
-                <span className="list-item-field">{item.ubicacion}</span>
-                <span className="list-item-field">{item.email}</span>
-                <span className="list-item-field">{item.telefono}</span>
+              <div className="list-item-line2">
+                <span>{item.address}</span>
+                <span>{item.location}</span>
+                <span>{item.zip}</span>
+                <span className={`role-badge ${item.role}`}>{item.role}</span>
               </div>
-            </div>
-          ) : (
-            // Layout flexible para card inactivo
-            <div className="list-item-content">
-              <span className="list-item-field">{item.id}</span>
-              <span className="list-item-field">{item.nombre}</span>
-              <span className="list-item-field">{item.edad}</span>
-              <span className="list-item-field">{item.profesion}</span>
-              <span className="list-item-field">{item.departamento}</span>
-              <span className="list-item-field">{item.proyecto}</span>
-              <span className="list-item-field">{item.nivel}</span>
-              <span className="list-item-field">{item.ubicacion}</span>
-              <span className="list-item-field">{item.email}</span>
-              <span className="list-item-field">{item.telefono}</span>
             </div>
           )}
         </div>

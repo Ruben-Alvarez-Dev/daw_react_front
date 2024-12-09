@@ -1,24 +1,57 @@
 import React from 'react';
 import Button from './Button';
-import '../styles/Modal.css';
+import './Modal.css';
 
-const Modal = ({ isOpen, onClose, title, children, onAccept, onCancel }) => {
+const Modal = ({
+  isOpen,
+  onClose,
+  text,
+  children,
+  onAccept,
+  onCancel,
+  acceptText = 'Aceptar',
+  cancelText = 'Cancelar',
+  showButtons = true,
+  disabledAccept = false,
+  size = 'medium',
+  className = ''
+}) => {
   if (!isOpen) return null;
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal" onClick={e => e.stopPropagation()}>
+      <div 
+        className={`modal-content modal-${size} ${className}`}
+        onClick={e => e.stopPropagation()}
+      >
         <div className="modal-header">
-          <h2>Selecciona un usuario</h2>
-          <button className="close-button" onClick={onClose}>&times;</button>
+          <h2>{text}</h2>
+          <button className="modal-close" onClick={onClose}>&times;</button>
         </div>
         <div className="modal-body">
           {children}
         </div>
-        <div className="modal-footer">
-          <Button variant="success" onClick={onAccept}>Aceptar</Button>
-          <Button variant="secondary" onClick={onCancel}>Cancelar</Button>
-        </div>
+        {showButtons && (
+          <div className="modal-footer">
+            {onAccept && (
+              <Button
+                variant="success"
+                onClick={onAccept}
+                disabled={disabledAccept}
+              >
+                {acceptText}
+              </Button>
+            )}
+            {onCancel && (
+              <Button
+                variant="secondary"
+                onClick={onCancel}
+              >
+                {cancelText}
+              </Button>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

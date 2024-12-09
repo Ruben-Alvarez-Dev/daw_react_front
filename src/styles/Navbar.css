@@ -1,10 +1,10 @@
 .navbar {
   background-color: transparent;
   width: 100%;
-  padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem;
   color: #ffffff;
 }
 
@@ -14,7 +14,6 @@
   font-size: var(--text-lg);
   font-weight: bold;
   color: var(--white);
-  text-decoration: none;
 }
 
 .navbar-brand h1 {
@@ -36,33 +35,44 @@
   align-items: center;
 }
 
-.navbar-actions {
-  display: flex;
-  gap: var(--spacing-sm);
+/* Estilos para el modal de login */
+.login-modal-content {
+  width: 100%;
+  max-height: 400px;
+  overflow-y: auto;
 }
 
-/* User Info Styles */
-.user-info {
+.user-item {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-right: 1rem;
+  padding: 0.75rem;
 }
 
-.user-tag {
-  padding: 0.25rem 0.75rem;
-  border-radius: 1rem;
+.user-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--gray-700);
+  color: var(--primary-color);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.user-name {
+  font-weight: 500;
+  color: var(--white);
+}
+
+.user-role {
   font-size: 0.875rem;
-}
-
-.user-tag-success {
-  color: #2ecc71;
-}
-
-.user-tag-warning {
-  color: #f1c40f;
-}
-
-.user-tag-danger {
-  color: #e74c3c;
+  color: var(--gray-400);
+  text-transform: capitalize;
 }

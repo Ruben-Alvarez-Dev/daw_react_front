@@ -5,6 +5,7 @@ const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [selectedUser, setSelectedUser] = useState(null);
 
   const login = (userData) => {
     setUser(userData);
@@ -14,8 +15,23 @@ export const UserProvider = ({ children }) => {
     setUser(null);
   };
 
+  const selectUser = (userData) => {
+    setSelectedUser(userData);
+  };
+
+  const clearSelectedUser = () => {
+    setSelectedUser(null);
+  };
+
   return (
-    <UserContext.Provider value={{ user, login, logout }}>
+    <UserContext.Provider value={{ 
+      user, 
+      login, 
+      logout, 
+      selectedUser,
+      selectUser,
+      clearSelectedUser 
+    }}>
       {children}
     </UserContext.Provider>
   );

@@ -1,114 +1,83 @@
-import { useState, useEffect } from 'react';
-import '../styles/Form.css';
+import { useEffect, useRef } from 'react';
+import Button from './Button';
+import './Form.css';
 
-const Form = ({ data, onSave, isCardActive }) => {
-  const [formData, setFormData] = useState(data || {});
+const Form = ({ 
+  id, 
+  fields, 
+  data = {}, 
+  onSave, 
+  isEditing = false,
+  hideButtons = false
+}) => {
+  const formRef = useRef(null);
 
   useEffect(() => {
-    setFormData(data || {});
-  }, [data]);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+    if (formRef.current) {
+      fields.forEach(field => {
+        const input = formRef.current[field.name];
+        if (input) {
+          input.value = data[field.name] || '';
+        }
+      });
+    }
+  }, [data, fields]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSave(formData);
+    if (onSave) {
+      onSave(e.target);
+    }
   };
 
+  if (!fields || fields.length === 0) {
+    return <div className="form-message">No fields defined</div>;
+  }
+
   if (!data) {
-    return <div className="form-message">Seleccione un empleado en Card3 para editar</div>;
+    return <div className="form-message">Select a user to edit</div>;
   }
 
   return (
-    <form className={`edit-form ${isCardActive ? 'active' : ''}`} onSubmit={handleSubmit}>
-      <div className="form-row">
-        <div className="form-group">
-          <label>ID</label>
-          <input type="text" name="id" value={formData.id || ''} disabled />
-        </div>
-        <div className="form-group">
-          <label>Nombre</label>
-          <input
-            type="text"
-            name="nombre"
-            value={formData.nombre || ''}
-            onChange={handleChange}
-          />
-        </div>
+    <form id={id} ref={formRef} onSubmit={handleSubmit} className="form">
+      <div className="form-grid">
+        {fields.map((field, index) => (
+          <div key={index} className="form-group">
+            <label htmlFor={field.name} className="form-label">{field.label}</label>
+            {field.type === 'select' ? (
+              <select
+                name={field.name}
+                id={field.name}
+                required={field.required}
+                disabled={field.disabled || !isEditing}
+                className="form-select"
+              >
+                <option value="">Select {field.label}</option>
+                {field.options?.map((option, idx) => (
+                  <option key={idx} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            ) : (
+              <input
+                type={field.type}
+                name={field.name}
+                id={field.name}
+                required={field.required}
+                disabled={field.disabled || !isEditing}
+                className="form-input"
+              />
+            )}
+          </div>
+        ))}
       </div>
-
-      <div className="form-row">
-        <div className="form-group">
-          <label>Profesión</label>
-          <input
-            type="text"
-            name="profesion"
-            value={formData.profesion || ''}
-            onChange={handleChange}
-          />
+      {!hideButtons && isEditing && (
+        <div className="form-buttons">
+          <Button type="submit" variant="success">Save</Button>
+          <Button type="reset" variant="secondary">Cancel</Button>
         </div>
-        <div className="form-group">
-          <label>Departamento</label>
-          <input
-            type="text"
-            name="departamento"
-            value={formData.departamento || ''}
-            onChange={handleChange}
-          />
-        </div>
-      </div>
-
-      <div className="form-row">
-        <div className="form-group">
-          <label>Proyecto</label>
-          <input
-            type="text"
-            name="proyecto"
-            value={formData.proyecto || ''}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label>Nivel</label>
-          <select 
-            name="nivel" 
-            value={formData.nivel || ''} 
-            onChange={handleChange}
-          >
-            <option value="">Seleccionar...</option>
-            <option value="Junior">Junior</option>
-            <option value="Mid-Senior">Mid-Senior</option>
-            <option value="Senior">Senior</option>
-          </select>
-        </div>
-      </div>
-
-      <div className="form-row">
-        <div className="form-group">
-          <label>Email</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email || ''}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label>Teléfono</label>
-          <input
-            type="tel"
-            name="telefono"
-            value={formData.telefono || ''}
-            onChange={handleChange}
-          />
-        </div>
-      </div>
+      )}
     </form>
   );
 };
